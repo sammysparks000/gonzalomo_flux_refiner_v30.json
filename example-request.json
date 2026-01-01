@@ -1,0 +1,408 @@
+{
+  "input": {
+    "workflow": {
+      "3": {
+        "inputs": {
+          "ckpt_name": "gonzalomoXLFluxPony_v10FluxSAIO.safetensors"
+        },
+        "class_type": "CheckpointLoaderSimple",
+        "_meta": {
+          "title": "CheckpointLoaderSimple"
+        }
+      },
+      "6": {
+        "inputs": {
+          "text": "",
+          "clip": [
+            "3",
+            1
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "CLIPTextEncode"
+        }
+      },
+      "7": {
+        "inputs": {
+          "seed": 6,
+          "steps": 5,
+          "cfg": 1,
+          "sampler_name": "dpmpp_2m",
+          "scheduler": "simple",
+          "denoise": 1,
+          "model": [
+            "153",
+            0
+          ],
+          "positive": [
+            "83",
+            0
+          ],
+          "negative": [
+            "130",
+            0
+          ],
+          "latent_image": [
+            "18",
+            0
+          ]
+        },
+        "class_type": "KSampler",
+        "_meta": {
+          "title": "KSampler"
+        }
+      },
+      "13": {
+        "inputs": {
+          "samples": [
+            "7",
+            0
+          ],
+          "vae": [
+            "3",
+            2
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAEDecode"
+        }
+      },
+      "14": {
+        "inputs": {
+          "images": [
+            "13",
+            0
+          ]
+        },
+        "class_type": "PreviewImage",
+        "_meta": {
+          "title": "Flux Preview Image"
+        }
+      },
+      "18": {
+        "inputs": {
+          "filename": "832x1216 (0.68)"
+        },
+        "class_type": "SDXLEmptyLatentSizePicker+",
+        "_meta": {
+          "title": "SDXLEmptyLatentSizePicker+"
+        }
+      },
+      "36": {
+        "inputs": {
+          "ckpt_name": "gonzalomoXLFluxPony_v40UnityXLDMD.safetensors"
+        },
+        "class_type": "CheckpointLoaderSimple",
+        "_meta": {
+          "title": "CheckpointLoaderSimple"
+        }
+      },
+      "37": {
+        "inputs": {
+          "text": [
+            "52",
+            0
+          ],
+          "clip": [
+            "58",
+            0
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "Base Prompt CLIP Text Encode"
+        }
+      },
+      "39": {
+        "inputs": {
+          "text": "",
+          "clip": [
+            "58",
+            0
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "Refining Negative Prompt"
+        }
+      },
+      "43": {
+        "inputs": {
+          "conditioning_to": [
+            "45",
+            0
+          ],
+          "conditioning_from": [
+            "37",
+            0
+          ]
+        },
+        "class_type": "ConditioningConcat",
+        "_meta": {
+          "title": "ConditioningConcat"
+        }
+      },
+      "45": {
+        "inputs": {
+          "text": [
+            "47",
+            0
+          ],
+          "clip": [
+            "58",
+            0
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "Refining Prompt CLIP Text Encode"
+        }
+      },
+      "58": {
+        "inputs": {
+          "value": -2,
+          "clip": [
+            "36",
+            1
+          ]
+        },
+        "class_type": "CLIPSetLastLayer",
+        "_meta": {
+          "title": "CLIPSetLastLayer"
+        }
+      },
+      "83": {
+        "inputs": {
+          "value": 4.499999999999999,
+          "conditioning": [
+            "109",
+            0
+          ]
+        },
+        "class_type": "FluxGuidance",
+        "_meta": {
+          "title": "FluxGuidance"
+        }
+      },
+      "109": {
+        "inputs": {
+          "text": [
+            "52",
+            0
+          ],
+          "clip": [
+            "3",
+            1
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "CLIPTextEncode"
+        }
+      },
+      "128": {
+        "inputs": {
+          "filename_prefix": "Flux_v10_Schnell_Refined_%date:yyyy-MM-dd-hhmmss%",
+          "images": [
+            "137",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "SaveImage"
+        }
+      },
+      "130": {
+        "inputs": {
+          "conditioning": [
+            "6",
+            0
+          ]
+        },
+        "class_type": "ConditioningZeroOut",
+        "_meta": {
+          "title": "ConditioningZeroOut"
+        }
+      },
+      "131": {
+        "inputs": {
+          "seed": 6,
+          "steps": 8,
+          "cfg": 1,
+          "sampler_name": "lcm",
+          "scheduler": "karras",
+          "denoise": 0.3500000000000001,
+          "model": [
+            "151",
+            0
+          ],
+          "positive": [
+            "43",
+            0
+          ],
+          "negative": [
+            "39",
+            0
+          ],
+          "latent_image": [
+            "132",
+            0
+          ]
+        },
+        "class_type": "KSampler",
+        "_meta": {
+          "title": "KSampler"
+        }
+      },
+      "132": {
+        "inputs": {
+          "pixels": [
+            "143",
+            0
+          ],
+          "vae": [
+            "36",
+            2
+          ]
+        },
+        "class_type": "VAEEncode",
+        "_meta": {
+          "title": "VAEEncode"
+        }
+      },
+      "133": {
+        "inputs": {
+          "samples": [
+            "131",
+            0
+          ],
+          "vae": [
+            "36",
+            2
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAEDecode"
+        }
+      },
+      "137": {
+        "inputs": {
+          "value": 512,
+          "image": [
+            "133",
+            0
+          ],
+          "model": [
+            "151",
+            0
+          ],
+          "clip": [
+            "36",
+            1
+          ],
+          "vae": [
+            "36",
+            2
+          ],
+          "positive": [
+            "43",
+            0
+          ],
+          "negative": [
+            "39",
+            0
+          ],
+          "bbox_detector": [
+            "139",
+            0
+          ],
+          "sam_model_opt": [
+            "140",
+            0
+          ],
+          "segm_detector_opt": [
+            "139",
+            1
+          ]
+        },
+        "class_type": "FaceDetailer",
+        "_meta": {
+          "title": "FaceDetailer"
+        }
+      },
+      "139": {
+        "inputs": {
+          "filename": "bbox/face_yolov8m.pt"
+        },
+        "class_type": "UltralyticsDetectorProvider",
+        "_meta": {
+          "title": "UltralyticsDetectorProvider"
+        }
+      },
+      "140": {
+        "inputs": {
+          "filename": "sam_vit_b_01ec64.pth"
+        },
+        "class_type": "SAMLoader",
+        "_meta": {
+          "title": "SAMLoader"
+        }
+      },
+      "141": {
+        "inputs": {
+          "images": [
+            "133",
+            0
+          ]
+        },
+        "class_type": "PreviewImage",
+        "_meta": {
+          "title": "Refiner Preview Image"
+        }
+      },
+      "143": {
+        "inputs": {
+          "text": "nearest-exact",
+          "image": [
+            "13",
+            0
+          ]
+        },
+        "class_type": "ImageScaleBy",
+        "_meta": {
+          "title": "ImageScaleBy"
+        }
+      },
+      "151": {
+        "inputs": {
+          "value": 3,
+          "model": [
+            "36",
+            0
+          ]
+        },
+        "class_type": "PatchModelAddDownscale",
+        "_meta": {
+          "title": "PatchModelAddDownscale"
+        }
+      },
+      "153": {
+        "inputs": {
+          "value": {},
+          "model": [
+            "3",
+            0
+          ]
+        },
+        "class_type": "Power Lora Loader (rgthree)",
+        "_meta": {
+          "title": "Power Lora Loader (rgthree)"
+        }
+      }
+    }
+  }
+}
